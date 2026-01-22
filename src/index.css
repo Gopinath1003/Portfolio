@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-geist: "Geist", sans-serif;
+}
+@theme {
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+
+  --color-oxford_navy: #1d3557;
+  --color-honeydew: #f1faee;
+}
+
+:root {
+  --bg: #f1faee;
+  --text: #1d3557;
+  --primary: #457b9d;
+  --accent: #e63946;
+}
+
+.dark {
+  --bg: #1d3557;
+  --text: #f1faee;
+  --primary: #a8dadc;
+  --accent: #e63946;
+}
