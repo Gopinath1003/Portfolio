@@ -1,6 +1,6 @@
 function ProjectCard({ title, description, tech, live, github }) {
   return (
-    <div className="w-full max-w-95">
+    <div className="w-full max-w-95 hover:scale-101 transition-all delay-50">
       <svg
         viewBox="0 0 411 400"
         className="w-full h-auto"

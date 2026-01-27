@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <footer className="bg-[#ade4e4] mt-20">
+    <footer className="bg-[#ade4e4] mt-20 rounded-tl-4xl rounded-tr-4xl">
       <div className="max-w-6xl mx-auto px-6 py-12">
 
         {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 ">
           
           {/* Left: Name & Tagline */}
           <div>
@@ -40,7 +40,7 @@ const Footer = () => {
               className="p-3 bg-black/30 rounded-full hover:scale-105 transition"
               aria-label="Email"
             >
-              <i class="fa-solid fa-envelope fa-lg"></i>
+              <i class="fa-solid fa-envelope "></i>
             </a>
           </div>
 

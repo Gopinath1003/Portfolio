@@ -76,7 +76,7 @@ function SkillButton({ text, onHover, onLeave }) {
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       className="bg-red-500 text-white px-6 py-3 rounded-full
-                 font-medium hover:bg-red-600 transition-all"
+                 font-medium hover:bg-red-600 cursor-pointer transition-all"
     >
       {text}
     </button>

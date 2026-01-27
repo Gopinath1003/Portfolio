@@ -1,8 +1,15 @@
-import logo from "../assets/logo.png";
+import { useState } from "react";
 
-function NavBar() {
+const tabs = ["Home", "About", "Skills", "Projects"];
+
+export default function NavBar() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoverIndex, setHoverIndex] = useState(null);
+
   return (
     <div className="flex justify-between items-center w-full">
+
+      {/* LOGO (unchanged) */}
       <div className="w-16 h-16 p-3 bg-accent rounded-full flex justify-center items-center">
         <svg
           width="30"
@@ -18,14 +25,53 @@ function NavBar() {
         </svg>
       </div>
 
-      <div className="w-[31%] bg-accent text-honeydew rounded-full h-16 flex justify-around items-center font-medium font-poppins text-lg">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Skills</a>
-        <a href="#">Projects</a>
+      {/* NAVBAR (same size, animated) */}
+      <div className="relative w-[31%] h-16 px-2 rounded-full bg-accent font-medium font-poppins text-lg flex items-center overflow-hidden">
+
+        {/* Hover bubble */}
+        {hoverIndex !== null && hoverIndex !== activeIndex && (
+          <span
+            className="absolute h-12 rounded-full bg-gradient-to-b from-[#3f3f3f] to-[#212121]
+            shadow-[inset_0_2px_7px_#ffffff29] transition-all duration-200"
+            style={{
+              width: "25%",
+              transform: `translateX(${hoverIndex * 100}%)`,
+              left: ""
+            }}
+          />
+        )}
+
+        {/* Active bubble */}
+        <span
+          className="absolute h-12 rounded-full bg-gradient-to-b from-[#f2f2f2] to-[#b3b3b3]
+          shadow-[inset_0_2px_7px_white] transition-all duration-200 z-10"
+          style={{
+            width: "25%",
+            transform: `translateX(${activeIndex * 100}%)`,
+            left: ""
+          }}
+        />
+
+        {/* Links */}
+        <div className="relative z-20 flex w-full justify-around">
+          {tabs.map((tab, index) => (
+            <button
+              key={tab}
+              onClick={() => setActiveIndex(index)}
+              onMouseEnter={() => setHoverIndex(index)}
+              onMouseLeave={() => setHoverIndex(null)}
+              className={`w-1/4 text-center transition-colors
+                ${
+                  activeIndex === index
+                    ? "text-black"
+                    : "text-honeydew hover:text-gray-300"
+                }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
-
-export default NavBar;
