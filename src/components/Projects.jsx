@@ -3,7 +3,7 @@ import projects from "../data/projects";
 
 function Projects() {
   return (
-    <section className="w-full p-6">
+    <section id="projects" className="w-full p-6">
       <div className="max-w-7xl mx-auto">
       <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">Projects</h2>

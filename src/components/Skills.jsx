@@ -8,7 +8,7 @@ function Skills() {
   const columns = 5;
 
   return (
-    <div className="max-w-7xl mx-auto py-16">
+    <section id="skills" className="max-w-7xl mx-auto py-16">
       {/* Title */}
       <h2 className="text-3xl font-bold mb-2">My Skills</h2>
       <p className="text-gray-500 mb-10">Technologies and tools I work with</p>
@@ -62,7 +62,7 @@ function Skills() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

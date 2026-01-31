@@ -4,11 +4,13 @@ import Skills from './components/Skills'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
+import Navbar from './components/NavBar'
 
 function App() {
 
   return (
     <>
+      <Navbar/>
       <Hero/>
       <About/>
       <Skills/>

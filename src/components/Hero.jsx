@@ -1,24 +1,25 @@
-import NavBar from "./NavBar";
+import Header from "./Header";
 import darkmode from "../assets/darkmode.png";
 import resumeLogo from "../assets/resumeLogo.png";
 
 function Hero() {
   return (
-    <section className="w-full p-6">
+    <section id="home" className="w-full p-6">
       <div className="max-w-7xl mx-auto">
         <svg
-          viewBox="0 0 1447 698"
+          viewBox="0 0 1447 770"
           className="w-full h-auto"
           preserveAspectRatio="xMidYMid meet"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M0 572.006V122.924C0 101.385 17.4609 83.9238 39 83.9238H47.4104C68.9495 83.9238 86.4104 66.4629 86.4104 44.9238V39C86.4104 17.4609 103.871 0 125.41 0H944.48C966.02 0 983.48 17.4609 983.48 39V44.9238C983.48 66.4629 1000.94 83.9238 1022.48 83.9238H1408C1429.54 83.9238 1447 101.385 1447 122.924V659C1447 680.539 1429.54 698 1408 698H357.17C335.631 698 318.17 680.539 318.17 659V650.006C318.17 628.467 300.709 611.006 279.17 611.006H39C17.4609 611.006 0 593.545 0 572.006Z"
+            d="M0 655V111C0 90.5655 16.5655 74 37 74C57.4345 74 74 57.4345 74 37C74 16.5655 90.5655 0 111 0H454.5C474.935 0 491.5 16.5655 491.5 37C491.5 57.4345 508.065 74 528.5 74H918C938.435 74 955 57.4345 955 37C955 16.5655 971.565 0 992 0H1216C1236.43 0 1253 16.5655 1253 37C1253 57.4345 1269.57 74 1290 74H1406C1428.64 74 1447 92.3563 1447 115V729C1447 751.644 1428.64 770 1406 770H316.17C295.736 770 279.17 753.435 279.17 733C279.17 712.565 262.605 696 242.17 696H41C18.3563 696 0 677.644 0 655Z"
             fill="#1d3557"
           />
-          <foreignObject x="0" y="0" width="1447" height="698">
+
+          <foreignObject x="0" y="0" width="1447" height="770">
             <div className="w-full h-full flex flex-col justify-between text-honeydew">
-              <NavBar />
+              <Header />
               <div className="flex justify-between px-12">
                 <div className="w-1/2 px-12 text-white">
                   <p className="text-sm opacity-80">Hi, my name is</p>
@@ -59,7 +60,7 @@ function Hero() {
                     </svg>
                   </div>
 
-                  <button className=" text-sm ml-12 px-6 w-40 py-3 rounded-full bg-accent flex justify-around items-center bg-punch_red text-honeydew hover:bg-punch_red-600">
+                  <button className=" text-sm ml-10 px-6 h-16 w-40 py-3 rounded-full bg-accent flex justify-around items-center bg-punch_red text-honeydew hover:bg-punch_red-600">
                     <svg
                       width="30"
                       height="30"
@@ -72,7 +73,7 @@ function Hero() {
                         fill="#FFFAFA"
                       />
                     </svg>
-
+                    
                     <p className="text-lg font-medium">Resume</p>
                   </button>
                 </div>
