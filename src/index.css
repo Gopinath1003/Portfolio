@@ -1,30 +1,116 @@
+/* Tailwind v4 entry */
 @import "tailwindcss";
-@theme {
-  --font-inter: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
-  --font-roboto: "Roboto", sans-serif;
-  --font-geist: "Geist", sans-serif;
-}
+
+/* --------------------------------------------------
+   TAILWIND THEME VARIABLES (REQUIRED FOR bg-*)
+-------------------------------------------------- */
 @theme {
   --color-bg: var(--bg);
   --color-text: var(--text);
+  --color-text2: var(--text2);
   --color-primary: var(--primary);
-  --color-accent: var(--accent);
-
-  --color-oxford_navy: #1d3557;
-  --color-honeydew: #f1faee;
+  --color-button: var(--button);
 }
 
-:root {
-  --bg: #f1faee;
-  --text: #1d3557;
-  --primary: #457b9d;
-  --accent: #e63946;
+/* --------------------------------------------------
+   BASE RESET & GLOBAL STYLES
+-------------------------------------------------- */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Inter, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }
 
-.dark {
-  --bg: #1d3557;
-  --text: #f1faee;
-  --primary: #a8dadc;
-  --accent: #e63946;
+/* --------------------------------------------------
+   THEME VARIABLES (RUNTIME CSS VARIABLES)
+-------------------------------------------------- */
+@layer base {
+  /* 🌞 DEFAULT / LIGHT THEME */
+  :root {
+    --bg: #ffffff;
+    --text: #031123;
+    --text2: #ffffff;
+    --primary: #457b9d;
+    --button: #7050ef;
+  }
+
+  /* 🌙 DARK THEME */
+  .theme-dark {
+    --bg: #0f172a;
+    --text: #f1faee;
+    --primary: #a8dadc;
+    --button: #e63946;
+  }
+
+  /* 🌊 BLUE THEME */
+  .theme-blue {
+    --bg: #2b7a78;
+    --text: #f1faee;
+    --primary: #457b9d;
+    --button: #241231;
+  }
+
+  /* ❄️ WINTER THEME */
+  .theme-winter {
+    --bg: #0B2E33;
+    --text: #B8E3E9;
+    --primary: #4F7C82;
+    --button: #4e7145;
+  }
+}
+
+/* --------------------------------------------------
+   GLOBAL TRANSITIONS (SMOOTH THEME SWITCH)
+-------------------------------------------------- */
+@layer base {
+  * {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease,
+      fill 0.3s ease;
+  }
+}
+
+/* --------------------------------------------------
+   CUSTOM UTILITIES
+-------------------------------------------------- */
+@layer utilities {
+  .container-center {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .mask-image {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent);
+    mask-image: linear-gradient(to bottom, black 80%, transparent);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+  }
 }

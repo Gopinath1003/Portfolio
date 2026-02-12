@@ -1,10 +1,30 @@
+import { useState, useEffect } from "react";
 import Header from "./Header";
-import darkmode from "../assets/darkmode.png";
-import resumeLogo from "../assets/resumeLogo.png";
+import profile from "../assets/profile.png";
+import "../index.css";
+import heroBg from "../assets/hero-bg.png";
+
 
 function Hero() {
+
+  const themes = ["", "theme-dark", "theme-blue","theme-winter"]; // "" = default
+  const [themeIndex, setThemeIndex] = useState(0);
+
+  const handleTheme = () => {
+    setThemeIndex((prev) => (prev + 1) % themes.length);
+  };
+
+  useEffect(() => {
+    document.documentElement.className = themes[themeIndex];
+  }, [themeIndex]);
+
   return (
-    <section id="home" className="w-full p-6">
+    <section id="home"
+    // style={{ backgroundImage: `url(${heroBg})` }}
+  className="
+    w-full
+    p-6
+  ">
       <div className="max-w-7xl mx-auto">
         <svg
           viewBox="0 0 1447 770"
@@ -14,15 +34,16 @@ function Hero() {
         >
           <path
             d="M0 655V111C0 90.5655 16.5655 74 37 74C57.4345 74 74 57.4345 74 37C74 16.5655 90.5655 0 111 0H454.5C474.935 0 491.5 16.5655 491.5 37C491.5 57.4345 508.065 74 528.5 74H918C938.435 74 955 57.4345 955 37C955 16.5655 971.565 0 992 0H1216C1236.43 0 1253 16.5655 1253 37C1253 57.4345 1269.57 74 1290 74H1406C1428.64 74 1447 92.3563 1447 115V729C1447 751.644 1428.64 770 1406 770H316.17C295.736 770 279.17 753.435 279.17 733C279.17 712.565 262.605 696 242.17 696H41C18.3563 696 0 677.644 0 655Z"
-            fill="#1d3557"
+            fill="var(--bg)"
+            
           />
 
           <foreignObject x="0" y="0" width="1447" height="770">
-            <div className="w-full h-full flex flex-col justify-between text-honeydew">
+            <div className="w-full h-full flex flex-col justify-between">
               <Header />
-              <div className="flex justify-between px-12">
-                <div className="w-1/2 px-12 text-white">
-                  <p className="text-sm opacity-80">Hi, my name is</p>
+              <div className="flex justify-between items-center px-12">
+                <div className="w-1/2 px-12 text-text">
+                  <p className="text-button font-bold opacity-80">Hi, my name is</p>
                   <h2 className="text-6xl font-geist font-extrabold leading-tight tracking-wide">
                     GOPINATH
                   </h2>
@@ -35,17 +56,29 @@ function Hero() {
                     building real-world projects and continuously improving my
                     problem-solving skills.
                   </p>
-                  <button className="bg-accent text-white text-lg font-roboto font-medium px-6 py-3 rounded-full">
+                  <button className="bg-button text-text2 text-text text-lg font-roboto px-6 py-3 rounded-full cursor-pointer"
+                  onClick={() => {
+                    document.getElementById("contact").scrollIntoView({
+                      behavior : "smooth",
+                      block : "start"
+                    })
+                  }}
+                  >
                     Contact Me
                   </button>
                 </div>
-                <div className="w-1/2 bg-gray-200">
-                  <img src="" alt="" />
+                <div className="w-1/2 h-[500px] mr-10 overflow-visible">
+                  <img
+                    className="mask-image brightness-130 contrast-105 saturate-80"
+                    src={profile}
+                    alt=""
+                  />
                 </div>
+                
               </div>
               <div>
                 <div className="flex">
-                  <div className="w-16 h-16 p-3 bg-accent rounded-4xl flex justify-center items-center">
+                  <div className="w-16 h-16 p-3 bg-button rounded-4xl flex justify-center items-center cursor-pointer" onClick={handleTheme}>
                     <svg
                       width="30"
                       height="30"
@@ -59,8 +92,8 @@ function Hero() {
                       />
                     </svg>
                   </div>
-
-                  <button className=" text-sm ml-10 px-6 h-16 w-40 py-3 rounded-full bg-accent flex justify-around items-center bg-punch_red text-honeydew hover:bg-punch_red-600">
+                  <a href="../../public/resume/Gopinath_S.pdf" download>
+                  <button className="bg-button text-text2 text-sm ml-10 px-6 h-16 w-40 py-3 rounded-full flex justify-around items-center cursor-pointer">
                     <svg
                       width="30"
                       height="30"
@@ -73,9 +106,11 @@ function Hero() {
                         fill="#FFFAFA"
                       />
                     </svg>
-                    
+
                     <p className="text-lg font-medium">Resume</p>
                   </button>
+                  </a>
+                  
                 </div>
               </div>
             </div>

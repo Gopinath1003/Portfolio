@@ -1,3 +1,4 @@
+import "../index.css";
 
 export default function Header() {
 
@@ -6,7 +7,7 @@ export default function Header() {
     <div className="flex justify-between items-center w-full">
       {/* LOGO (unchanged) */}
       <div>
-        <div className="w-16 h-16 p-3 bg-accent rounded-full flex justify-center items-center">
+        <div className="w-16 h-16 p-3 bg-button rounded-full flex justify-center items-center">
         <svg
           width="30"
           height="30"
@@ -21,67 +22,23 @@ export default function Header() {
         </svg>
         
       </div>
-      <div className="w-42"></div>
       </div>
       
-
-      {/* NAVBAR (same size, animated) */}
-      {/* <div className="relative  w-[31.5%] h-16 px-2 rounded-full bg-accent font-medium font-poppins text-lg flex items-center overflow-hidden">
-      
-        {hoverIndex !== null && hoverIndex !== activeIndex && (
-          <span
-            className="absolute h-12 rounded-full bg-gradient-to-b from-[#3f3f3f] to-[#212121]
-            shadow-[inset_0_2px_7px_#ffffff29] transition-all duration-200"
-            style={{
-              width: "24%",
-              transform: `translateX(${hoverIndex * 100}%)`,
-              left: "",
-            }}
-          />
-        )}
-
-     
-        <span
-          className="absolute h-12 rounded-full bg-gradient-to-b from-[#f2f2f2] to-[#b3b3b3]
-          shadow-[inset_0_2px_7px_white] transition-all duration-200 z-10"
-          style={{
-            width: "24%",
-            transform: `translateX(${activeIndex * 100}%)`,
-            left: "",
-          }}
-        />
-
-       
-        <div className="relative z-20 flex w-full justify-around">
-          {tabs.map((tab, index) => (
-            <button
-              key={tab}
-              onClick={() => setActiveIndex(index)}
-              onMouseEnter={() => setHoverIndex(index)}
-              onMouseLeave={() => setHoverIndex(null)}
-              className={`w-1/4 text-center transition-colors
-                ${
-                  activeIndex === index
-                    ? "text-black"
-                    : "text-honeydew hover:text-gray-300"
-                }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      </div> */}
-
       {/* Social */}
-      <div className="w-46 h-16 p-2 bg-red-400 rounded-full flex justify-between items-center">
-        <div className="w-13 h-13 p-3 bg-accent rounded-full flex justify-center items-center">
+      <div className="w-46 h-16 p-2 bg-gray-200 rounded-full flex justify-between items-center">
+        <div className="w-13 h-13 p-3 text-text2 bg-button rounded-full flex justify-center items-center cursor-pointer">
+          <a href="https://www.linkedin.com/in/gopinath-s-7a4892276/" target="_blank">
           <i class="fa-brands fa-linkedin-in fa-lg"></i>
+          </a>
         </div>
-        <div className="w-13 h-13 p-3 bg-accent rounded-full flex justify-center items-center">
+        <div className="w-13 h-13 p-3 text-text2 bg-button rounded-full flex justify-center items-center cursor-pointer">
           <i class="fa-brands fa-x-twitter fa-lg"></i>
         </div>
-        <div className="w-13 h-13 p-3 bg-accent rounded-full flex justify-center items-center">
+        <div className="w-13 h-13 p-3 text-text2 bg-button rounded-full flex justify-center items-center cursor-pointer">
+          <a href="https://github.com/Gopinath1003" target="_blank">
           <i className="fa-brands fa-github fa-lg"></i>
+          </a>
+
         </div>
       </div>
       

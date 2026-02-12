@@ -15,12 +15,12 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-14">
 
           {/* LEFT: Contact Info */}
-          <div className="bg-[#d48a3c] rounded-3xl p-8 space-y-6">
+          <div className="bg-button rounded-3xl p-8 space-y-6">
             
             <div>
               <p className="text-sm opacity-70">Email</p>
               <p className="text-base font-semibold">
-                gopinath@example.com
+                gopi18706@gmail.com
               </p>
             </div>
 
@@ -69,7 +69,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT: Contact Form */}
-          <form className="bg-[#81c8c8] rounded-3xl p-8 space-y-5">
+          <form className="bg-bg rounded-3xl p-8 space-y-5">
             
             <div>
               <label className="text-sm opacity-70">Name</label>
@@ -100,7 +100,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full mt-2 py-3 rounded-full bg-[#d48a3c] text-black font-medium hover:opacity-90 transition"
+              className="w-full mt-2 py-3 rounded-full bg-button text-white font-medium hover:opacity-90 transition"
             >
               Send Message
             </button>
