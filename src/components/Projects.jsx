@@ -5,7 +5,7 @@ function Projects() {
   return (
     <section id="projects" className="w-full p-6">
       <div className="max-w-7xl mx-auto">
-      <div className="mb-12">
+      <div className="mb-12 text-title">
           <h2 className="text-3xl md:text-4xl font-bold">Projects</h2>
           <p className="text-sm opacity-70 mt-2">
             List of projects I have done with live demo.

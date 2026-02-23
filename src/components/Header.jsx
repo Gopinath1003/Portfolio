@@ -26,15 +26,15 @@ export default function Header() {
       
       {/* Social */}
       <div className="w-46 h-16 p-2 bg-gray-200 rounded-full flex justify-between items-center">
-        <div className="w-13 h-13 p-3 text-text2 bg-button rounded-full flex justify-center items-center cursor-pointer">
+        <div className="w-13 h-13 p-3 text-text bg-button rounded-full flex justify-center items-center cursor-pointer">
           <a href="https://www.linkedin.com/in/gopinath-s-7a4892276/" target="_blank">
           <i class="fa-brands fa-linkedin-in fa-lg"></i>
           </a>
         </div>
-        <div className="w-13 h-13 p-3 text-text2 bg-button rounded-full flex justify-center items-center cursor-pointer">
+        <div className="w-13 h-13 p-3 text-text bg-button rounded-full flex justify-center items-center cursor-pointer">
           <i class="fa-brands fa-x-twitter fa-lg"></i>
         </div>
-        <div className="w-13 h-13 p-3 text-text2 bg-button rounded-full flex justify-center items-center cursor-pointer">
+        <div className="w-13 h-13 p-3 text-text bg-button rounded-full flex justify-center items-center cursor-pointer">
           <a href="https://github.com/Gopinath1003" target="_blank">
           <i className="fa-brands fa-github fa-lg"></i>
           </a>

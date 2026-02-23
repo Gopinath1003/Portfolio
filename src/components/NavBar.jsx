@@ -51,10 +51,10 @@ export default function Navbar() {
     <div
   className="fixed top-6 left-1/2 -translate-x-1/2 z-50
   w-1/4 h-14 px-2 rounded-full
-  bg-bg
+  bg-bg 
   font-medium font-poppins text-lg
   flex items-center overflow-hidden
-  backdrop-filter backdrop-blur-md border border-gray-100
+  backdrop-filter backdrop-blur-lg  border-gray-100 drop-shadow-sm drop-shadow-button
 "
 >
 
@@ -62,7 +62,7 @@ export default function Navbar() {
       {hoverIndex !== null && hoverIndex !== activeIndex && (
         <span
           className="absolute h-10 rounded-full bg-button
-            shadow-[inset_0_0px_4px_#ffffff] transition-all duration-200"
+            shadow-[inset_0_0px_4px_#ffffff] transition-all duration-200 "
           style={{
             width: "24%",
             transform: `translateX(${hoverIndex * 100}%)`,
@@ -96,7 +96,7 @@ export default function Navbar() {
             }}
             onMouseEnter={() => setHoverIndex(index)}
             onMouseLeave={() => setHoverIndex(null)}
-            className={`w-1/4 text-center transition-colors
+            className={`w-1/4 text-center transition-colors cursor-pointer
       ${
         activeIndex === index
           ? "text-white"

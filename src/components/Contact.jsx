@@ -2,9 +2,8 @@ const Contact = () => {
   return (
     <section id="contact" className="min-h-[70vh] py-20">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* Section Heading */}
-        <div className="mb-12">
+        <div className="mb-12 text-title">
           <h2 className="text-3xl md:text-4xl font-bold">Contact</h2>
           <p className="text-sm opacity-70 mt-2">
             Let’s connect and build something together
@@ -13,64 +12,85 @@ const Contact = () => {
 
         {/* Main Content */}
         <div className="grid md:grid-cols-2 gap-14">
-
           {/* LEFT: Contact Info */}
-          <div className="bg-button rounded-3xl p-8 space-y-6">
-            
-            <div>
-              <p className="text-sm opacity-70">Email</p>
-              <p className="text-base font-semibold">
-                gopi18706@gmail.com
-              </p>
-            </div>
+          {/* LEFT: Contact Info */}
+<div className="bg-button rounded-3xl p-10 text-white space-y-8">
 
-            <div>
-              <p className="text-sm opacity-70">Phone</p>
-              <p className="text-base font-semibold">
-                +91 XXXXX XXXXX
-              </p>
-            </div>
+  {/* Intro Text */}
+  <p className="text-sm opacity-80 leading-relaxed">
+    Feel free to reach out to me for any questions or opportunities.
+    I'm always open to discussing new projects, creative ideas or
+    opportunities to be part of your vision.
+  </p>
 
-            <div>
-              <p className="text-sm opacity-70">Location</p>
-              <p className="text-base font-semibold">
-                India
-              </p>
-            </div>
+  {/* Location */}
+  <div className="flex items-start gap-4">
+    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-black/30">
+      <i className="fa-solid fa-location-dot"></i>
+    </div>
+    <div>
+      <p className="text-sm opacity-70">Location</p>
+      <p className="font-semibold">India</p>
+    </div>
+  </div>
 
-            {/* Social Links */}
-            <div className="pt-4">
-              <p className="text-sm opacity-70 mb-3">Find me on</p>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-[#1f2b2b] p-3 rounded-full hover:scale-105 transition"
-                >
-                  🐙
-                </a>
-                <a
-                  href="https://linkedin.com/in/yourusername"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-[#1f2b2b] p-3 rounded-full hover:scale-105 transition"
-                >
-                  💼
-                </a>
-                <a
-                  href="mailto:gopinath@example.com"
-                  className="bg-[#1f2b2b] p-3 rounded-full hover:scale-105 transition"
-                >
-                  ✉️
-                </a>
-              </div>
-            </div>
-          </div>
+  {/* Email */}
+  <div className="flex items-start gap-4">
+    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-black/30">
+      <i className="fa-solid fa-envelope"></i>
+    </div>
+    <div>
+      <p className="text-sm opacity-70">Email</p>
+      <p className="font-semibold">gopi18706@gmail.com</p>
+    </div>
+  </div>
+
+  {/* Phone */}
+  <div className="flex items-start gap-4">
+    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-black/30">
+      <i className="fa-solid fa-phone"></i>
+    </div>
+    <div>
+      <p className="text-sm opacity-70">Phone</p>
+      <p className="font-semibold">+91 XXXXX XXXXX</p>
+    </div>
+  </div>
+
+  {/* Social Section */}
+  <div className="pt-4">
+    <p className="text-sm opacity-70 mb-4">Follow Me</p>
+    <div className="flex gap-4">
+      <a
+        href="https://github.com/Gopinath1003"
+        target="_blank"
+        rel="noreferrer"
+        className="w-10 h-10 flex items-center justify-center bg-black/30 rounded-full hover:scale-105 transition"
+      >
+        <i className="fa-brands fa-github"></i>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/gopinath-s-7a4892276/"
+        target="_blank"
+        rel="noreferrer"
+        className="w-10 h-10 flex items-center justify-center bg-black/30 rounded-full hover:scale-105 transition"
+      >
+        <i className="fa-brands fa-linkedin"></i>
+      </a>
+
+      <a
+        href="mailto:gopi18706@gmail.com"
+        className="w-10 h-10 flex items-center justify-center bg-black/30 rounded-full hover:scale-105 transition"
+      >
+        <i className="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+</div>
 
           {/* RIGHT: Contact Form */}
           <form className="bg-bg rounded-3xl p-8 space-y-5">
-            
             <div>
               <label className="text-sm opacity-70">Name</label>
               <input
@@ -104,7 +124,6 @@ const Contact = () => {
             >
               Send Message
             </button>
-
           </form>
         </div>
       </div>

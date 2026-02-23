@@ -10,8 +10,12 @@ function Skills() {
   return (
     <section id="skills" className="max-w-7xl mx-auto py-16">
       {/* Title */}
-      <h2 className="text-3xl font-bold mb-2">My Skills</h2>
-      <p className="text-gray-500 mb-10">Technologies and tools I work with</p>
+      <div className="mb-12 text-title">
+        <h2 className="text-3xl font-bold mb-2">My Skills</h2>
+        <p className="text-gray-500 mb-10">
+          Technologies and tools I work with
+        </p>
+      </div>
 
       <div className="flex gap-16 items-start justify-around">
         {/* LEFT SIDE */}
@@ -100,16 +104,23 @@ function Hexagon({ label, active }) {
         fill="var(--bg)"
       />
 
-      {/* CENTER TEXT */}
-      <img src={`../assets/${label.toLowerCase()}.png`} />
+  
+      <image
+        href={`/skills/${label.toLowerCase()}.png`}
+        x="63"
+        y="60"
+        width="70"
+        height="70"
+        transform="translate(-25, -25)"
+      />
 
+      {/* Text Below Image */}
       <text
         x="73"
-        y="85"
+        y="120"   // 👈 moved lower
         textAnchor="middle"
-        dominantBaseline="middle"
-        fill="black"
-        fontSize="18"
+        fill="var(--text)"
+        fontSize="16"
         fontWeight="600"
       >
         {label}

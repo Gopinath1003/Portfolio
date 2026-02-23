@@ -19,7 +19,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Portfolio Website",
+    title: "Portfolio",
     description:
       "Personal portfolio website to showcase projects, skills, and problem-solving profiles.",
     tech: ["React", "Tailwind CSS"],

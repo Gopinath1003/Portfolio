@@ -1,5 +1,7 @@
 /* Tailwind v4 entry */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Geist:wght@400;500;600;700&display=swap');
+
 
 /* --------------------------------------------------
    TAILWIND THEME VARIABLES (REQUIRED FOR bg-*)
@@ -10,6 +12,26 @@
   --color-text2: var(--text2);
   --color-primary: var(--primary);
   --color-button: var(--button);
+  --color-title: var(--title);
+}
+
+@font-face {
+  font-family: "chromate";
+  src: url("/src/assets/fonts/Chromate-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-chromate: "chromate", sans-serif;
+}
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-geist: "Geist", sans-serif;
 }
 
 /* --------------------------------------------------
@@ -31,12 +53,45 @@
   }
 
   body {
-    background-color: var(--bg);
+    background-color: var(--background);
     color: var(--text);
     font-family: Inter, sans-serif;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+}
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Base star layer */
+.stars {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  background-image: radial-gradient(2px 2px at 20px 30px, white, transparent),
+                    radial-gradient(2px 2px at 40px 70px, white, transparent),
+                    radial-gradient(1px 1px at 90px 40px, white, transparent),
+                    radial-gradient(2px 2px at 130px 80px, white, transparent),
+                    radial-gradient(1px 1px at 160px 120px, white, transparent);
+  background-repeat: repeat;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 70s linear infinite;
 }
 
 /* --------------------------------------------------
@@ -45,36 +100,62 @@
 @layer base {
   /* 🌞 DEFAULT / LIGHT THEME */
   :root {
+    --background: #EEF1F8;
     --bg: #ffffff;
     --text: #031123;
     --text2: #ffffff;
-    --primary: #457b9d;
+    --primary: #ffffff;
     --button: #7050ef;
+    --title:  #031123;
   }
 
   /* 🌙 DARK THEME */
   .theme-dark {
-    --bg: #0f172a;
+    --background: #ffffff;
+    --bg: #172340;
     --text: #f1faee;
-    --primary: #a8dadc;
+    --primary: #ffffff;
     --button: #e63946;
+    --title:  #0f172a;
   }
 
   /* 🌊 BLUE THEME */
   .theme-blue {
+    --background: #ffffff;
     --bg: #2b7a78;
     --text: #f1faee;
-    --primary: #457b9d;
-    --button: #241231;
+    --primary: #ffffff;
+    --button: #1F3B40;
+    --title:  #241231;
   }
 
   /* ❄️ WINTER THEME */
   .theme-winter {
+    --background: #ffffff; /* page background (deep slate) */
     --bg: #0B2E33;
     --text: #B8E3E9;
-    --primary: #4F7C82;
+    --primary: #B8E3E9;
     --button: #4e7145;
+    --title:  #0B2E33;
   }
+  .theme-dark1 {
+  /* Main backgrounds */
+  --background: #0F172A;   /* page background (deep slate) */
+  --bg: #1E293B;           /* cards / sections */
+
+  /* Text colors */
+  --text: #E2E8F0;         /* primary text */
+  --muted: #94A3B8;        /* secondary text */
+  --title: #FFFFFF;        /* headings */
+
+  /* Accent colors */
+  --primary: #38BDF8;      /* cyan accent */
+  --button: #0EA5E9;       /* button color */
+  --button-hover: #0284C7; /* button hover */
+
+  /* Borders & subtle elements */
+  --border: #334155;
+}
 }
 
 /* --------------------------------------------------
@@ -89,6 +170,9 @@
       fill 0.3s ease;
   }
 }
+
+
+
 
 /* --------------------------------------------------
    CUSTOM UTILITIES
