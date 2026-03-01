@@ -54,7 +54,7 @@ export default function Navbar() {
   bg-bg 
   font-medium font-poppins text-lg
   flex items-center overflow-hidden
-  backdrop-filter backdrop-blur-lg  border-gray-100 drop-shadow-sm drop-shadow-button
+  backdrop-filter backdrop-blur-lg  border-gray-100 drop-shadow-button
 "
 >
 

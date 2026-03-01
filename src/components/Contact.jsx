@@ -90,37 +90,34 @@ const Contact = () => {
 </div>
 
           {/* RIGHT: Contact Form */}
-          <form className="bg-bg rounded-3xl p-8 space-y-5">
+          <form className="bg-bg rounded-3xl p-7 sm:p-8 space-y-5">
             <div>
               <label className="text-sm opacity-70">Name</label>
               <input
                 type="text"
                 placeholder="Your name"
-                className="w-full mt-1 p-3 rounded-xl bg-black/20 outline-none"
+                className="w-full mt-1 p-3 rounded-xl bg-black/10 outline-none focus:ring-2 focus:ring-button/40 transition"
               />
             </div>
-
             <div>
               <label className="text-sm opacity-70">Email</label>
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="w-full mt-1 p-3 rounded-xl bg-black/20 outline-none"
+                className="w-full mt-1 p-3 rounded-xl bg-black/10 outline-none focus:ring-2 focus:ring-button/40 transition"
               />
             </div>
-
             <div>
               <label className="text-sm opacity-70">Message</label>
               <textarea
                 rows="4"
                 placeholder="Your message"
-                className="w-full mt-1 p-3 rounded-xl bg-black/20 outline-none resize-none"
+                className="w-full mt-1 p-3 rounded-xl bg-black/10 outline-none resize-none focus:ring-2 focus:ring-button/40 transition"
               />
             </div>
-
             <button
               type="submit"
-              className="w-full mt-2 py-3 rounded-full bg-button text-white font-medium hover:opacity-90 transition"
+              className="w-full mt-2 py-3 rounded-full bg-button text-white font-medium hover:opacity-90 transition cursor-pointer"
             >
               Send Message
             </button>

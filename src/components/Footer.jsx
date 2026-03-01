@@ -6,33 +6,32 @@ const tabs = [
 ];
 
 const Footer = () => {
+  const scrollTo = (id) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
   return (
     <footer className="bg-bg mt-20 rounded-tl-4xl rounded-tr-4xl text-text">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
         {/* Top Section */}
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-          {/* Left: Name & Tagline */}
-          <div className="w-1/3 flex justify-between">
-            <div>
+        <div className="flex flex-col sm:flex-row sm:mx-5 justify-between items-start gap-8">
+          {/* Left: Name, tagline, nav links */}
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 w-full sm:w-auto">
+            <div className="max-w-xs">
               <h3 className="text-lg font-semibold">Gopinath</h3>
-              <p className="text-sm opacity-70 mt-1 max-w-xs">
+              <p className="text-sm opacity-70 mt-1">
                 3rd year Computer Science Engineering student passionate about
                 building modern web applications.
               </p>
             </div>
-<hr className="bg-gray-400 w-[1.5px] h-44 mx-10 md:block" />
-            {/* 🔥 Vertical Footer Navbar (Right Side) */}
-            <div className="flex flex-col gap-3 text-sm opacity-80">
+
+            <div className="hidden sm:block w-px bg-gray-400/40 self-stretch" />
+
+            {/* Nav links */}
+            <div className="flex sm:flex-col gap-4 sm:gap-3 text-sm opacity-80 flex-wrap">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() =>
-                    document.getElementById(tab.id)?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    })
-                  }
+                  onClick={() => scrollTo(tab.id)}
                   className="text-left hover:text-button transition cursor-pointer"
                 >
                   {tab.label}
@@ -41,38 +40,40 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex gap-4">
+          {/* Right: Social icons */}
+          <div className="flex gap-3">
             <a
               href="https://github.com/Gopinath1003"
               target="_blank"
               rel="noreferrer"
-              className="bg-button w-12 h-12 flex justify-center items-center rounded-full hover:drop-shadow-gray-200 hover:drop-shadow-md hover:scale-105 transition"
+              aria-label="GitHub"
+              className="bg-button w-11 h-11 flex justify-center items-center rounded-full hover:scale-105 transition"
             >
-              <i className="fa-brands fa-github fa-lg"></i>
+              <i className="fa-brands fa-github fa-lg text-white"></i>
             </a>
-
             <a
               href="https://www.linkedin.com/in/gopinath-s-7a4892276/"
               target="_blank"
               rel="noreferrer"
-              className="bg-button w-12 h-12 flex justify-center items-center rounded-full hover:scale-105 transition"
+              aria-label="LinkedIn"
+              className="bg-button w-11 h-11 flex justify-center items-center rounded-full hover:scale-105 transition"
             >
-              <i className="fa-brands fa-linkedin fa-lg"></i>
+              <i className="fa-brands fa-linkedin fa-lg text-white"></i>
             </a>
-
             <a
               href="mailto:gopi18706@gmail.com"
-              className="bg-button w-12 h-12 flex justify-center items-center rounded-full hover:scale-105 transition"
+              aria-label="Email"
+              className="bg-button w-11 h-11 flex justify-center items-center rounded-full hover:scale-105 transition"
             >
-              <i className="fa-solid fa-envelope"></i>
+              <i className="fa-solid fa-envelope fa-lg text-white"></i>
             </a>
           </div>
         </div>
+
         {/* Divider */}
         <div className="h-px bg-white/10 my-8" />
 
-        {/* Bottom Section */}
+        {/* Bottom */}
         <div className="text-center text-sm opacity-60">
           Made with ❤️ by Gopinath
         </div>
