@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { skills } from "../data/skillsData";
 
 function Skills() {
   const [active, setActive] = useState(null);
 
   const allSkills = Object.values(skills).flat();
-  const columns = 5;
+
+  const [columns, setColumns] = useState(5);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      if (window.innerWidth < 640) setColumns(2);
+      else if (window.innerWidth < 768) setColumns(3);
+      else if (window.innerWidth < 1024) setColumns(4);
+      else setColumns(5);
+    };
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
 
   return (
-    <section id="skills" className="max-w-7xl mx-auto py-16">
+    <section id="skills" className="max-w-7xl mx-auto py-16 px-6">
       {/* Title */}
       <div className="mb-12 text-title">
         <h2 className="text-3xl font-bold mb-2">My Skills</h2>
@@ -17,9 +31,12 @@ function Skills() {
         </p>
       </div>
 
-      <div className="flex gap-16 items-start justify-around">
+      <div className="flex lg:flex-row flex-col gap-16 items-start justify-around">
         {/* LEFT SIDE */}
-        <div className="flex flex-col gap-4">
+        <div
+          className="grid grid-cols-2 gap-4 w-full
+          lg:flex lg:flex-col lg:w-auto"
+        >
           <SkillButton
             text="Frontend Development"
             onHover={() => setActive("frontend")}
@@ -43,29 +60,31 @@ function Skills() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="grid grid-cols-5 gap-x-6">
-          {allSkills.map((skill, index) => {
-            const isHighlighted =
-              active === null || skills[active].includes(skill);
-            const row = Math.floor(index / columns);
-            const offset = row % 2 !== 0;
+        <div className="w-full flex items-center justify-center -ml-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6">
+            {allSkills.map((skill, index) => {
+              const isHighlighted =
+                active === null || skills[active].includes(skill);
+              const row = Math.floor(index / columns);
+              const offset = row % 2 !== 0;
 
-            return (
-              <div
-                key={skill}
-                className={`
-          transition-transform duration-300
-          ${offset ? "translate-x-18" : ""}
-          ${row > 0 ? "-mt-10" : ""}
-
-        `}
-              >
-                <Hexagon label={skill} active={isHighlighted} />
-              </div>
-            );
-          })}
+              return (
+                <div
+                  key={skill}
+                  className={`
+                            transition-transform duration-300
+                            ${offset ? "translate-x-18" : ""}
+                            ${row > 0 ? "-mt-10" : ""}
+                                    
+                          `}
+                >
+                  <Hexagon label={skill} active={isHighlighted} />
+                </div>
+              );
+                })}
+          </div>
         </div>
-      </div>
+        </div>
     </section>
   );
 }
@@ -97,6 +116,7 @@ function Hexagon({ label, active }) {
       className={`
         transition-all duration-300
         ${active ? "scale-110 opacity-100" : "opacity-30"}
+        
       `}
     >
       <path
@@ -104,7 +124,6 @@ function Hexagon({ label, active }) {
         fill="var(--bg)"
       />
 
-  
       <image
         href={`/skills/${label.toLowerCase()}.png`}
         x="63"
@@ -117,7 +136,7 @@ function Hexagon({ label, active }) {
       {/* Text Below Image */}
       <text
         x="73"
-        y="120"   // 👈 moved lower
+        y="120" // 👈 moved lower
         textAnchor="middle"
         fill="var(--text)"
         fontSize="16"
