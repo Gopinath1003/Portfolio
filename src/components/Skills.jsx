@@ -14,6 +14,7 @@ function Skills() {
       else if (window.innerWidth < 768) setColumns(3);
       else if (window.innerWidth < 1024) setColumns(4);
       else setColumns(5);
+      console.log(columns);
     };
     updateColumns();
     window.addEventListener("resize", updateColumns);
@@ -61,7 +62,8 @@ function Skills() {
 
         {/* RIGHT SIDE */}
         <div className="w-full flex items-center justify-center -ml-10">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6">
+          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6">
+            {" "}
             {allSkills.map((skill, index) => {
               const isHighlighted =
                 active === null || skills[active].includes(skill);
@@ -81,10 +83,10 @@ function Skills() {
                   <Hexagon label={skill} active={isHighlighted} />
                 </div>
               );
-                })}
+            })}
           </div>
         </div>
-        </div>
+      </div>
     </section>
   );
 }
@@ -114,10 +116,8 @@ function Hexagon({ label, active }) {
       viewBox="0 0 146 162"
       xmlns="http://www.w3.org/2000/svg"
       className={`
-        transition-all duration-300
-        ${active ? "scale-110 opacity-100" : "opacity-30"}
-        
-      `}
+    ${active ? 'scale-110 opacity-100' : 'opacity-30'}
+  `}
     >
       <path
         d="M61.7461 2.94753C68.5529 -0.982389 76.9393 -0.982388 83.7461 2.94753L134.492 32.2458C141.299 36.1758 145.492 43.4385 145.492 51.2984V109.895C145.492 117.755 141.299 125.018 134.492 128.948L83.7461 158.246C76.9393 162.176 68.5529 162.176 61.7461 158.246L11 128.948C4.19314 125.018 -0.0000368 117.755 -0.0000368 109.895L-0.0000368 51.2984C-0.0000368 43.4385 4.19314 36.1758 11 32.2458L61.7461 2.94753Z"

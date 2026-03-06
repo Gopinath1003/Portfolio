@@ -4,7 +4,13 @@ import profile from "../assets/profile.png";
 import "../index.css";
 
 function Hero() {
-  const themes = ["", "theme-dark", "theme-blue", "theme-winter","theme-dark1"]; // "" = default
+  const themes = [
+    "",
+    "theme-dark",
+    "theme-blue",
+    "theme-winter",
+    "theme-dark1",
+  ]; // "" = default
   const [themeIndex, setThemeIndex] = useState(0);
   const [isHomeVisible, setIsHomeVisible] = useState(true);
 
@@ -44,7 +50,95 @@ function Hero() {
     p-6
   "
     >
-      <div className="max-w-7xl mx-auto">
+      {/* {small screen device} */}
+      <div className="lg:hidden md:hidden max-w-7xl mx-auto">
+        {/* ── Card shell ── */}
+        <div className="bg-bg rounded-3xl sm:rounded-[2.5rem] overflow-hidden">
+          {/* Header bar */}
+          <div className="px-4 sm:px-8 pt-5 pb-4">
+            <Header onTheme={handleTheme} />
+          </div>
+
+          {/* Main content */}
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between px-6 sm:px-10 lg:px-16 pb-10 gap-8 md:gap-4">
+            {/* LEFT: Text */}
+            <div className="w-full md:w-1/2 text-text text-center md:text-left">
+              <p className="text-button font-bold opacity-80 text-sm sm:text-base">
+                Hi, my name is
+              </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-widest font-chromate font-extrabold leading-tight mt-1">
+                GOPINATH
+              </h1>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mt-2">
+                I'm an Aspiring Software Engineer
+              </h2>
+              <p className="text-sm sm:text-base font-poppins pb-6 leading-relaxed max-w-md mt-4 mx-auto md:mx-0">
+                I'm a 3rd year Computer Science student passionate about Web
+                Development, React, and AI-driven applications. I enjoy building
+                real-world projects and continuously improving my problem-solving
+                skills.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
+                <button
+                  className="bg-button text-white text-base font-roboto px-7 py-3 rounded-full cursor-pointer hover:opacity-90 transition-opacity w-full sm:w-auto"
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                >
+                  Contact Me
+                </button>
+                <a href="/resume/Gopinath_S.pdf" download>
+                  <button className="bg-button text-white text-sm px-6 py-3 rounded-full flex justify-center items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity w-full sm:w-auto">
+                    <svg width="22" height="22" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M16.25 11.25H23.125L16.25 4.375V11.25ZM7.5 2.5H17.5L25 10V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 3.6125 6.1125 2.5 7.5 2.5ZM17.5 25V23.75C17.5 22.0875 14.1625 21.25 12.5 21.25C10.8375 21.25 7.5 22.0875 7.5 23.75V25H17.5ZM12.5 15C11.837 15 11.2011 15.2634 10.7322 15.7322C10.2634 16.2011 10 16.837 10 17.5C10 18.163 10.2634 18.7989 10.7322 19.2678C11.2011 19.7366 11.837 20 12.5 20C13.163 20 13.7989 19.7366 14.2678 19.2678C14.7366 18.7989 15 18.163 15 17.5C15 16.837 14.7366 16.2011 14.2678 15.7322C13.7989 15.2634 13.163 15 12.5 15Z"
+                        fill="#FFFAFA"
+                      />
+                    </svg>
+                    Resume
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT: Profile image */}
+            <div className="w-full md:w-1/2 flex justify-center items-center relative">
+              {/* Spinning ring */}
+              <div
+                className="absolute rounded-full border-4 sm:border-8 border-dashed border-button animate-slow-spin"
+                style={{
+                  width: "min(380px, 90vw)",
+                  height: "min(380px, 90vw)",
+                }}
+              />
+              <div className="max-h-[380px] w-[380px] rounded-full overflow-hidden">
+                <img
+                  className="mask-image brightness-120 contrast-105 saturate-80 relative z-10"
+                  style={{ maxHeight: "380px", width: "auto" }}
+                  src={profile}
+                  alt="Gopinath profile"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom bar: theme toggle */}
+          <div className="px-6 sm:px-10 lg:px-16 pb-6">
+            <div
+              className="w-14 h-14 p-3 bg-button text-white rounded-full flex justify-center items-center cursor-pointer"
+              onClick={handleTheme}
+            >
+              <i className="fa-solid fa-circle-half-stroke fa-xl"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="hidden lg:flex md:flex max-w-7xl mx-auto">
         <svg
           viewBox="0 0 1447 775"
           className="w-full h-auto"
@@ -138,7 +232,9 @@ function Hero() {
           <i class="fa-solid fa-circle-half-stroke fa-xl"></i>
         </div>
       )}
-      <div className="fixed bottom-0 right-10 flex flex-col items-center z-50">
+
+      {/* Vertical email (desktop only) */}
+      <div className="hidden lg:flex fixed bottom-0 right-10 flex-col items-center z-50">
         <a
           href="mailto:gopi18706@gmail.com"
           className="writing-mode-vertical mb-5 text-sm tracking-widest text-bg transition duration-300 hover:-translate-y-1"
