@@ -1,16 +1,13 @@
 import "../index.css";
 
 export default function Header() {
-
-
   return (
     <div className="flex justify-between items-center w-full">
-      {/* LOGO (unchanged) */}
-      <div>
-        <div className="w-16 h-16 p-3 bg-button rounded-full flex justify-center items-center">
+      {/* LOGO */}
+      <div className="lg:w-16 lg:h-16 w-12 h-12 sm:w-14 sm:h-14 p-2.5 bg-button rounded-full flex justify-center items-center shrink-0">
         <svg
-          width="30"
-          height="30"
+          width="26"
+          height="26"
           viewBox="0 0 30 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,29 +17,34 @@ export default function Header() {
             fill="#FFFAFA"
           />
         </svg>
-        
       </div>
-      </div>
-      
-      {/* Social */}
-      <div className="w-46 h-16 p-2 bg-gray-200 rounded-full flex justify-between items-center">
-        <div className="w-13 h-13 p-3 text-text bg-button rounded-full flex justify-center items-center cursor-pointer">
-          <a href="https://www.linkedin.com/in/gopinath-s-7a4892276/" target="_blank">
-          <i class="fa-brands fa-linkedin-in fa-lg"></i>
-          </a>
-        </div>
-        <div className="w-13 h-13 p-3 text-text bg-button rounded-full flex justify-center items-center cursor-pointer">
-          <i class="fa-brands fa-x-twitter fa-lg"></i>
-        </div>
-        <div className="w-13 h-13 p-3 text-text bg-button rounded-full flex justify-center items-center cursor-pointer">
-          <a href="https://github.com/Gopinath1003" target="_blank">
-          <i className="fa-brands fa-github fa-lg"></i>
-          </a>
 
+      {/* Social icons */}
+      <div className="flex lg:w-46 gap-2 sm:gap-3 p-2 bg-gray-200 rounded-full items-center justify-between">
+        <div className="w-10 h-10 sm:w-11 sm:h-11 p-2.5 text-white bg-button rounded-full flex justify-center items-center cursor-pointer hover:scale-105 transition">
+          <a
+            href="https://www.linkedin.com/in/gopinath-s-7a4892276/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i className="fa-brands fa-linkedin-in fa-sm sm:fa-base"></i>
+          </a>
+        </div>
+        <div className="w-10 h-10 sm:w-11 sm:h-11 p-2.5 text-white bg-button rounded-full flex justify-center items-center cursor-pointer hover:scale-105 transition">
+          <i className="fa-brands fa-x-twitter fa-sm sm:fa-base"></i>
+        </div>
+        <div className="w-10 h-10 sm:w-11 sm:h-11 p-2.5 text-white bg-button rounded-full flex justify-center items-center cursor-pointer hover:scale-105 transition">
+          <a
+            href="https://github.com/Gopinath1003"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <i className="fa-brands fa-github fa-sm sm:fa-base"></i>
+          </a>
         </div>
       </div>
-      
     </div>
   );
 }
-

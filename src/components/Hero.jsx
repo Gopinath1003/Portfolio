@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "./Header";
-import profile from "../assets/profile.png";
+import profile from "../assets/profile1.png";
 import "../index.css";
 
 function Hero() {
@@ -114,9 +114,9 @@ function Hero() {
                   height: "min(380px, 90vw)",
                 }}
               />
-              <div className="max-h-[380px] w-[380px] rounded-full overflow-hidden">
+              <div className="max-h-[382px] w-[381px] rounded-full overflow-hidden">
                 <img
-                  className="mask-image brightness-120 contrast-105 saturate-80 relative z-10"
+                  className="brightness-120 contrast-105 saturate-80 relative z-10"
                   style={{ maxHeight: "380px", width: "auto" }}
                   src={profile}
                   alt="Gopinath profile"
@@ -186,7 +186,7 @@ function Hero() {
                   <div className="absolute left-10 w-140 h-140 rounded-full border-8 border-dashed border-button animate-slow-spin"></div>
 
                   <img
-                    className="mask-image brightness-120 contrast-105 saturate-80"
+                    className=" brightness-120 contrast-105 saturate-80"
                     src={profile}
                     alt=""
                   />
