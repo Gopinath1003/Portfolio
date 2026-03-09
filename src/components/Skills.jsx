@@ -10,7 +10,7 @@ function Skills() {
 
   useEffect(() => {
     const updateColumns = () => {
-      if (window.innerWidth < 640) setColumns(2);
+      if (window.innerWidth < 640) setColumns(3);
       else if (window.innerWidth < 768) setColumns(3);
       else if (window.innerWidth < 1024) setColumns(4);
       else setColumns(5);
@@ -61,7 +61,7 @@ function Skills() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="w-full flex items-center justify-center -ml-10">
+        {/* <div className="w-full flex items-center justify-center -ml-10">
           <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6">
             {" "}
             {allSkills.map((skill, index) => {
@@ -81,6 +81,23 @@ function Skills() {
                           `}
                 >
                   <Hexagon label={skill} active={isHighlighted} />
+                </div>
+              );
+            })}
+          </div>
+        </div> */}
+        <div className="w-full flex items-center justify-center">
+          <div
+            className="grid gap-6 grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+            
+          >
+            {allSkills.map((skill) => {
+              const isHighlighted =
+                active === null || skills[active].includes(skill);
+
+              return (
+                <div key={skill} className="flex justify-center">
+                  <SkillSquare label={skill} active={isHighlighted} />
                 </div>
               );
             })}
@@ -116,7 +133,7 @@ function Hexagon({ label, active }) {
       viewBox="0 0 146 162"
       xmlns="http://www.w3.org/2000/svg"
       className={`
-    ${active ? 'scale-110 opacity-100' : 'opacity-30'}
+    ${active ? "scale-110 opacity-100" : "opacity-30"}
   `}
     >
       <path
@@ -145,5 +162,28 @@ function Hexagon({ label, active }) {
         {label}
       </text>
     </svg>
+  );
+}
+
+function SkillSquare({ label, active }) {
+  return (
+    <div
+      className={`
+        flex flex-col items-center justify-center
+        w-28 h-28
+        rounded-xl
+        border
+        transition-all duration-300 bg-bg
+        ${active ? "scale-110 opacity-100" : "opacity-30"}
+      `}
+    >
+      <img
+        src={`/skills/${label.toLowerCase()}.png`}
+        alt={label}
+        className="w-10 h-10 mb-2 object-contain"
+      />
+
+      <span className="text-sm font-semibold text-center">{label}</span>
+    </div>
   );
 }
