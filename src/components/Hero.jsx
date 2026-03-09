@@ -110,14 +110,13 @@ function Hero() {
               <div
                 className="absolute rounded-full border-4 sm:border-8 border-dashed border-button animate-slow-spin"
                 style={{
-                  width: "min(380px, 90vw)",
-                  height: "min(380px, 90vw)",
+                  width: "min(380px, 76vw)",
+                  height: "min(380px, 76vw)",
                 }}
               />
-              <div className="max-h-[382px] w-[381px] rounded-full overflow-hidden">
+              <div className="max-h-[380px] max-w-[380px] rounded-full overflow-hidden">
                 <img
-                  className="brightness-120 contrast-105 saturate-80 relative z-10"
-                  style={{ maxHeight: "380px", width: "auto" }}
+                  className="w-full h-full brightness-120 contrast-105 saturate-80 relative z-10"
                   src={profile}
                   alt="Gopinath profile"
                 />
